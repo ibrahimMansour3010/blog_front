@@ -1,0 +1,61 @@
+<!-- <div class="w-50 m-auto ">
+    <table class="w-100">
+        <tr>
+            <td>ID : </td>
+            <td>{{blog.id}}</td>
+        </tr>
+        <tr>
+            <td>Title : </td>
+            <td>{{blog.title}}</td>
+        </tr>
+        <tr>
+            <td>Body : </td>
+            <td>{{blog.body}}</td>
+        </tr>
+        <tr>
+            <td>CreationDate : </td>
+            <td>{{blog.creationDate}}</td>
+        </tr>
+    </table>
+</div> -->
+
+<div class="container" style="width: 500px; word-wrap:break-word ;">
+    <div class="row">
+        <div class="col-2">
+            ID :
+        </div>
+        <div class="col-10">
+            {{blog.id}}
+        </div>
+    </div>
+    <hr>
+    
+    <div class="row">
+        <div class="col-2">
+            Title :
+        </div>
+        <div class="col-10">
+            {{blog.title}}
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-2">
+            Body :
+        </div>
+        <div class="col-10">
+            {{blog.body}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-2">
+            Creation Date :
+        </div>
+        <div class="col-10">
+            {{blog.creationDate}}
+        </div>
+    </div>
+</div>
+<button class="btn btn-danger" mat-dialog-close>Close</button>

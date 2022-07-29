@@ -1,0 +1,28 @@
+<form action="" class="w-50 m-auto mt-5"  (ngSubmit)="onSubmit()">
+    <h2 *ngIf="blog.id>0">Edit Blog</h2>
+    <h2 *ngIf="blog.id==0">Add Blog</h2>
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Title :</mat-label>
+        <input [(ngModel)]="blog.title" required name="title" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Body : </mat-label>
+        <textarea [(ngModel)]="blog.body" required name="body"   style="height: 200px"  matInput></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Creation date</mat-label>
+        <input [(ngModel)]="blog.creationDate" required name="creationDate"  matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <br>
+    <br>    
+    <div class="text-center">
+        <button class="btn btn-success m-2" type="submit">Save</button>
+        <button class="btn btn-danger m-2" (click)="GoHome()" >Cancel</button>
+    </div>
+</form>
