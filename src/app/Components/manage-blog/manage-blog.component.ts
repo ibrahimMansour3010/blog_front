@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Blog } from 'src/app/Models/blog';
 import { Response } from 'src/app/Models/response';
@@ -14,7 +15,7 @@ import { BlogComponent } from '../blog/blog.component';
 export class ManageBlogComponent implements OnInit {
   blog: Blog;
   editedBlog: Blog | any;
-  constructor(private route: ActivatedRoute, private router: Router, private service: BlogService) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: BlogService, private _snackBar:MatSnackBar) {
     this.blog = {
       id: 0,
       title: '',
@@ -47,8 +48,16 @@ export class ManageBlogComponent implements OnInit {
         } else {
           alert(res.message);
         }
+        this._snackBar.open(res.message, '',{
+          duration:500
+        });
       })
+    }else{
+      this._snackBar.open('No Changes', '',
+      { duration: 500 });
+      this.router.navigate(['/home']);
     }
+
   }
   GoHome() {
     this.router.navigate(['/home'],{ skipLocationChange: true });
