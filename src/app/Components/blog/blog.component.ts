@@ -52,8 +52,8 @@ export class BlogComponent implements OnInit, OnChanges {
           this.dataSource = new MatTableDataSource<BlogItem>(this.blogs)
           this.dataSource.paginator = this.paginator;
           this.totalRows = res.response.totalRows;
-          this.loading = false;
         }
+        this.loading = false;
       })
     }, 1);
   }
@@ -71,6 +71,7 @@ export class BlogComponent implements OnInit, OnChanges {
   pageChanged(event: PageEvent){
     this.RecordsPerPage = event.pageSize;
     this.PageNumber = event.pageIndex;
+    this.GetAllBlogs();
     this.loading = true;
     this.service.GetAllBlogs(event.pageIndex,event.pageSize).subscribe((res: Response) => {
       if (res.status) {
